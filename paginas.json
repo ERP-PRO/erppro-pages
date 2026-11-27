@@ -23,6 +23,6 @@
       "tema": "Como emitir NFC-e na loja (cupom fiscal eletrônico)",
       "arquivo": "outros/netlify-emitir-nfce.html",
       "observacao": "Netlify, permanente. Não repetir este tema no pages.dev."
-    }
+    }, {"onde": "https://objectstorage.sa-saopaulo-1.oraclecloud.com/n/growe2zkkora/b/erppro/o/index.html (Oracle Cloud)", "tema": "Pagina institucional da ERPPro: ERP e PDV em nuvem, recursos, planos e segmentos", "arquivo": "", "observacao": "Oracle Cloud Always Free, permanente. Linka erppro.com.br, erppro.notion.site e erppro.pages.dev. Notion (Canais oficiais) e erp-pro.github.io ja linkam a rede; quando fizer sentido, incluir 1 link natural do pages.dev para o Notion ou para esta pagina."}
   ]
 }
