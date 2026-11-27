@@ -72,12 +72,23 @@ def main():
     # zip para upload
     os.makedirs(DIST, exist_ok=True)
     zip_path = os.path.join(DIST, "site.zip")
-    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+    if os.path.exists(zip_path):
+        os.remove(zip_path)
+    import shutil
+    import subprocess
+    if shutil.which("zip"):
+        # Formato que a Cloudflare comprovadamente lê (pastas incluídas)
+        subprocess.run(["zip", "-q", "-r", "-9", zip_path, "."], cwd=SITE, check=True)
+    else:
+      with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
         for pasta, _, arquivos in os.walk(SITE):
             rel_pasta = os.path.relpath(pasta, SITE)
             if rel_pasta != ".":
                 # A Cloudflare só lê subpastas que têm entrada de diretório no zip
-                z.writestr(zipfile.ZipInfo(rel_pasta.replace(os.sep, "/") + "/"), "")
+                info = zipfile.ZipInfo(rel_pasta.replace(os.sep, "/") + "/")
+                info.external_attr = (0o40755 << 16) | 0x10  # marca como pasta
+                info.create_system = 3
+                z.writestr(info, "")
             for nome in sorted(arquivos):
                 cheio = os.path.join(pasta, nome)
                 z.write(cheio, os.path.relpath(cheio, SITE))
