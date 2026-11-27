@@ -17,6 +17,12 @@
       "tema": "Estoque por grade em loja de roupas e calçados",
       "arquivo": "outros/aws-amplify-estoque-por-grade.html",
       "observacao": "AWS Amplify, conta Free de 6 meses (até ~maio/2027). Não repetir este tema no pages.dev enquanto estiver no ar."
+    },
+    {
+      "onde": "https://erppro.netlify.app/ (Netlify)",
+      "tema": "Como emitir NFC-e na loja (cupom fiscal eletrônico)",
+      "arquivo": "outros/netlify-emitir-nfce.html",
+      "observacao": "Netlify, permanente. Não repetir este tema no pages.dev."
     }
   ]
 }

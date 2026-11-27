@@ -42,28 +42,27 @@ Dono: Adriano Fernandes (ERPPro). Responda a ele em português, direto, tom leve
 
 ## Fila de temas
 
-1. Como emitir NFC-e na loja: passo a passo do cupom fiscal eletrônico
-2. Fechamento de caixa sem diferença: rotina diária do PDV
-3. Venda condicional (malinha): como controlar sem perder peça
-4. Catálogo digital para vender pelo WhatsApp
-5. Cobrança pelo WhatsApp sem constranger o cliente
-6. Controle de estoque para loja pequena: o básico que funciona
-7. Inventário rotativo: contar o estoque sem fechar a loja
-8. Etiqueta com código de barras: como organizar a loja
-9. Como formar preço de venda: markup e margem na prática
-10. Curva ABC de produtos: o que comprar e o que liquidar
-11. Certificado digital A1 para emitir nota: como funciona
-12. Reforma Tributária (IBS e CBS) explicada para o lojista
-13. Entrada de mercadoria pelo XML da nota do fornecedor
-14. Contas a pagar e a receber: organizando o financeiro da loja
-15. Gestão de loja de autopeças: estoque, aplicação e balcão
-16. Gestão de papelaria e material escolar na volta às aulas
-17. Gestão de pet shop: produtos, serviços e recorrência
-18. Gestão de agropecuária: estoque sazonal e venda a prazo
-19. Gestão de loja de cosméticos: validade, lote e kits
-20. Gestão de mercadinho: giro rápido e controle de perdas
-21. Várias lojas: transferência de estoque entre filiais
-22. Venda sob encomenda: como não perder o pedido
-23. Relatórios que o dono da loja deve olhar toda semana
-24. Como reduzir perdas e furtos no varejo
-25. Atendimento pelo WhatsApp: organizar pedidos e orçamentos
+1. Fechamento de caixa sem diferença: rotina diária do PDV
+2. Venda condicional (malinha): como controlar sem perder peça
+3. Catálogo digital para vender pelo WhatsApp
+4. Cobrança pelo WhatsApp sem constranger o cliente
+5. Controle de estoque para loja pequena: o básico que funciona
+6. Inventário rotativo: contar o estoque sem fechar a loja
+7. Etiqueta com código de barras: como organizar a loja
+8. Como formar preço de venda: markup e margem na prática
+9. Curva ABC de produtos: o que comprar e o que liquidar
+10. Certificado digital A1 para emitir nota: como funciona
+11. Reforma Tributária (IBS e CBS) explicada para o lojista
+12. Entrada de mercadoria pelo XML da nota do fornecedor
+13. Contas a pagar e a receber: organizando o financeiro da loja
+14. Gestão de loja de autopeças: estoque, aplicação e balcão
+15. Gestão de papelaria e material escolar na volta às aulas
+16. Gestão de pet shop: produtos, serviços e recorrência
+17. Gestão de agropecuária: estoque sazonal e venda a prazo
+18. Gestão de loja de cosméticos: validade, lote e kits
+19. Gestão de mercadinho: giro rápido e controle de perdas
+20. Várias lojas: transferência de estoque entre filiais
+21. Venda sob encomenda: como não perder o pedido
+22. Relatórios que o dono da loja deve olhar toda semana
+23. Como reduzir perdas e furtos no varejo
+24. Atendimento pelo WhatsApp: organizar pedidos e orçamentos

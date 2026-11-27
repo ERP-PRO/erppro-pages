@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como emitir NFC-e na loja: guia prático do cupom fiscal eletrônico | ERPPro</title>
+<meta name="description" content="Guia prático da NFC-e para lojistas: o que é, o que precisa para começar (certificado A1, CSC, credenciamento na SEFAZ), como emitir no caixa, contingência, cancelamento e erros comuns. Por Adriano Fernandes, ERPPro.">
+<meta name="author" content="Adriano Fernandes">
+<link rel="canonical" href="https://erppro.netlify.app/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Como emitir NFC-e na loja: guia prático do cupom fiscal eletrônico">
+<meta property="og:description" content="Certificado A1, CSC, credenciamento, emissão no PDV, contingência e cancelamento explicados para o lojista.">
+<meta property="og:locale" content="pt_BR">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Como emitir NFC-e na loja: guia prático do cupom fiscal eletrônico",
+      "inLanguage": "pt-BR",
+      "author": {"@type": "Person", "name": "Adriano Fernandes"},
+      "publisher": {"@type": "Organization", "name": "ERPPro", "url": "https://erppro.com.br/"},
+      "about": ["NFC-e", "cupom fiscal eletrônico", "emissor de NFC-e", "nota fiscal de consumidor eletrônica"]
+    },
+    {
+      "@type": "HowTo",
+      "name": "Como começar a emitir NFC-e na loja",
+      "step": [
+        {"@type": "HowToStep", "name": "Confirme a inscrição estadual", "text": "A NFC-e é um documento do ICMS: a loja precisa estar com a inscrição estadual ativa."},
+        {"@type": "HowToStep", "name": "Tenha um certificado digital", "text": "O certificado digital da empresa assina cada NFC-e. Sistemas em nuvem costumam usar o modelo A1."},
+        {"@type": "HowToStep", "name": "Faça o credenciamento na SEFAZ", "text": "Cada estado tem seu procedimento para habilitar a empresa a emitir NFC-e."},
+        {"@type": "HowToStep", "name": "Gere o CSC", "text": "O Código de Segurança do Contribuinte é gerado no portal da SEFAZ e vai no QR Code do cupom."},
+        {"@type": "HowToStep", "name": "Configure o sistema e o caixa", "text": "Cadastre certificado, CSC, série e numeração no emissor e faça uma venda de teste."}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "NFC-e e cupom fiscal são a mesma coisa?",
+         "acceptedAnswer": {"@type": "Answer", "text": "A NFC-e é a versão eletrônica do cupom fiscal da venda ao consumidor final. Ela é transmitida para a SEFAZ e o cliente recebe o DANFE NFC-e, impresso ou digital, com QR Code para consulta."}},
+        {"@type": "Question", "name": "Preciso de impressora fiscal para emitir NFC-e?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Não é preciso impressora fiscal homologada. Uma impressora térmica comum imprime o DANFE NFC-e, e em vários estados o documento também pode ser enviado ao cliente em formato digital."}},
+        {"@type": "Question", "name": "O que fazer quando a internet cai?",
+         "acceptedAnswer": {"@type": "Answer", "text": "A NFC-e tem modo de contingência: a venda é emitida offline e o sistema transmite as notas para a SEFAZ quando a conexão volta, dentro do prazo definido pelo estado."}}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root{--cor:#c2410c;--cor-escura:#7c2d12;--fundo:#fff7ed;--texto:#1b2333;--suave:#5a6478;--borda:#fed7aa}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--texto);line-height:1.65}
+  header{background:linear-gradient(135deg,var(--cor-escura),var(--cor));color:#fff;padding:64px 20px 56px}
+  .wrap{max-width:820px;margin:0 auto}
+  .tag{display:inline-block;background:rgba(255,255,255,.16);padding:4px 12px;border-radius:99px;font-size:.85rem;margin-bottom:16px}
+  h1{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;margin:0 0 16px}
+  header p{font-size:1.1rem;opacity:.93;margin:0}
+  .autor{margin-top:20px;font-size:.9rem;opacity:.85}
+  main{padding:40px 20px 24px}
+  h2{font-size:1.5rem;color:var(--cor-escura);margin:44px 0 12px}
+  h3{font-size:1.05rem;margin:0 0 6px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:20px 0}
+  .card{background:var(--fundo);border:1px solid var(--borda);border-radius:14px;padding:18px}
+  .card p{margin:0;color:var(--suave);font-size:.95rem}
+  .passos{counter-reset:p;list-style:none;padding:0}
+  .passos li{counter-increment:p;position:relative;padding:14px 14px 14px 58px;border-bottom:1px solid var(--borda)}
+  .passos li::before{content:counter(p);position:absolute;left:10px;top:12px;width:34px;height:34px;border-radius:50%;background:var(--cor);color:#fff;display:grid;place-items:center;font-weight:700}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95rem}
+  th,td{border:1px solid var(--borda);padding:10px;text-align:left;vertical-align:top}
+  th{background:var(--fundo)}
+  .destaque{background:#fefce8;border-left:4px solid #eab308;padding:14px 18px;border-radius:8px;margin:20px 0}
+  details{border:1px solid var(--borda);border-radius:10px;padding:12px 16px;margin:10px 0}
+  summary{font-weight:600;cursor:pointer}
+  .cta{background:var(--fundo);border:1px solid var(--borda);border-radius:16px;padding:28px;text-align:center;margin:44px 0 12px}
+  .cta a{display:inline-block;margin-top:12px;background:var(--cor);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-weight:600}
+  footer{text-align:center;color:var(--suave);font-size:.85rem;padding:24px 20px 40px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="tag">Guia prático · Fiscal no varejo</span>
+    <h1>Como emitir NFC-e na loja: guia prático do cupom fiscal eletrônico</h1>
+    <p>A NFC-e é o cupom fiscal de hoje: sai do caixa em segundos, vai direto para a SEFAZ e chega ao cliente com QR Code. Este guia mostra o que a loja precisa para começar, como funciona no dia a dia e como evitar os erros mais comuns.</p>
+    <p class="autor">Por Adriano Fernandes · ERPPro</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>O que é a NFC-e</h2>
+  <p>A <strong>NFC-e (Nota Fiscal de Consumidor Eletrônica)</strong> é o documento fiscal da venda ao consumidor final no varejo. Ela substituiu o cupom fiscal em papel emitido por equipamentos antigos: agora a venda vira um arquivo eletrônico assinado digitalmente, transmitido para a Secretaria da Fazenda do estado (SEFAZ) e autorizado na hora.</p>
+  <p>O cliente recebe o <strong>DANFE NFC-e</strong>, que é a representação da nota, impresso em impressora térmica comum ou enviado em formato digital, com um <strong>QR Code</strong> para consultar a nota no site da SEFAZ.</p>
+
+  <div class="grid">
+    <div class="card"><h3>🧾 Venda ao consumidor</h3><p>Usada no balcão e no caixa, para quem compra para uso próprio.</p></div>
+    <div class="card"><h3>⚡ Autorização em segundos</h3><p>O caixa transmite e recebe a autorização da SEFAZ durante a venda.</p></div>
+    <div class="card"><h3>🖨️ Sem impressora fiscal</h3><p>Uma impressora térmica comum imprime o DANFE NFC-e.</p></div>
+  </div>
+
+  <h2>O que a loja precisa para começar a emitir</h2>
+  <ol class="passos">
+    <li><strong>Inscrição estadual ativa.</strong> A NFC-e é um documento do ICMS, então a empresa precisa estar regular no estado.</li>
+    <li><strong>Certificado digital.</strong> Ele assina cada nota. Em sistemas na nuvem, o modelo usado costuma ser o <strong>A1</strong>, um arquivo instalado no próprio sistema.</li>
+    <li><strong>Credenciamento na SEFAZ.</strong> Cada estado tem seu caminho para habilitar a empresa a emitir NFC-e. Na dúvida, o contador resolve rápido.</li>
+    <li><strong>CSC (Código de Segurança do Contribuinte).</strong> É gerado no portal da SEFAZ e entra no QR Code de cada cupom. Guarde o código e o ID dele.</li>
+    <li><strong>Sistema emissor e caixa configurados.</strong> Cadastre certificado, CSC, série e numeração inicial no emissor e faça uma venda de teste antes de abrir as portas.</li>
+  </ol>
+  <div class="destaque"><strong>Atenção ao cadastro de produtos:</strong> NCM, CFOP e tributação corretos em cada produto evitam rejeição da nota na hora da venda. Vale revisar o cadastro com o contador antes de começar.</div>
+
+  <h2>Como funciona a emissão no dia a dia do caixa</h2>
+  <p>Na prática, o operador não precisa pensar em nota fiscal: ele passa os produtos, escolhe a forma de pagamento e finaliza. O sistema monta o arquivo, assina com o certificado, transmite para a SEFAZ, recebe a autorização e imprime ou envia o DANFE NFC-e. Tudo em poucos segundos.</p>
+  <table>
+    <tr><th>Momento</th><th>O que acontece</th></tr>
+    <tr><td>Fechamento da venda</td><td>O sistema gera a NFC-e com produtos, valores, impostos e forma de pagamento.</td></tr>
+    <tr><td>Transmissão</td><td>A nota assinada vai para a SEFAZ e volta autorizada (ou com o motivo da rejeição).</td></tr>
+    <tr><td>Entrega ao cliente</td><td>DANFE NFC-e impresso ou enviado por meio digital, com QR Code e chave de acesso.</td></tr>
+    <tr><td>Guarda</td><td>O XML da nota fica armazenado para a contabilidade e a fiscalização.</td></tr>
+  </table>
+
+  <h2>Internet caiu? Como funciona a contingência</h2>
+  <p>Sem internet, a loja não precisa parar de vender. A NFC-e tem <strong>modo de contingência offline</strong>: o sistema emite a nota sem transmitir na hora, imprime o DANFE com a marcação de contingência e envia tudo para a SEFAZ assim que a conexão volta. O importante é que essa transmissão aconteça dentro do prazo definido pelo estado, e um bom sistema faz isso sozinho.</p>
+
+  <h2>Cancelamento e erros comuns</h2>
+  <ul>
+    <li><strong>Cancelamento tem prazo curto.</strong> O cancelamento da NFC-e é feito pelo sistema, com justificativa, dentro do prazo definido pela SEFAZ do estado. Passou do prazo, o caminho é outro (como a devolução).</li>
+    <li><strong>Rejeição por cadastro.</strong> NCM inválido, CFOP errado ou tributação incompatível são as causas mais comuns de nota rejeitada.</li>
+    <li><strong>Certificado vencido.</strong> O certificado digital tem validade. Anote a data e renove antes, senão o caixa para de emitir.</li>
+    <li><strong>CSC errado.</strong> QR Code que não abre na consulta geralmente é CSC ou ID cadastrado errado.</li>
+    <li><strong>Numeração pulada.</strong> Números não usados precisam ser inutilizados no sistema para manter a sequência em ordem.</li>
+  </ul>
+
+  <h2>Perguntas frequentes</h2>
+  <details><summary>NFC-e e cupom fiscal são a mesma coisa?</summary><p>A NFC-e é a versão eletrônica do cupom fiscal da venda ao consumidor final. Ela é transmitida para a SEFAZ e o cliente recebe o DANFE NFC-e, impresso ou digital, com QR Code para consulta.</p></details>
+  <details><summary>Preciso de impressora fiscal para emitir NFC-e?</summary><p>Não é preciso impressora fiscal homologada. Uma impressora térmica comum imprime o DANFE NFC-e, e em vários estados o documento também pode ser enviado ao cliente em formato digital.</p></details>
+  <details><summary>O que fazer quando a internet cai?</summary><p>A NFC-e tem modo de contingência: a venda é emitida offline e o sistema transmite as notas para a SEFAZ quando a conexão volta, dentro do prazo definido pelo estado.</p></details>
+  <details><summary>Qual a diferença entre NFC-e e NF-e?</summary><p>A NFC-e é para venda ao consumidor final no varejo. A NF-e é usada em vendas para empresas, entre estados e em outras operações. Muitas lojas emitem as duas, dependendo do cliente.</p></details>
+
+  <div class="cta">
+    <h2 style="margin-top:0">NFC-e no caixa, sem complicação</h2>
+    <p>O ERPPro emite NFC-e direto do PDV, com certificado A1, e envia o PDF e o XML da nota ao cliente.</p>
+    <a href="https://erppro.com.br/emissor-de-nfce/">Conhecer o emissor de NFC-e do ERPPro</a>
+  </div>
+</main>
+
+<footer>© ERPPro · Guia de emissão de NFC-e para lojas</footer>
+</body>
+</html>
