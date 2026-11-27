@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fechamento de caixa sem diferença: rotina diária do PDV passo a passo | ERPPro</title>
+<meta name="description" content="Como fazer o fechamento de caixa sem diferença: abertura com fundo de troco, sangria e suprimento registrados, contagem às cegas e conferência por forma de pagamento. Por Adriano Fernandes, ERPPro.">
+<meta name="author" content="Adriano Fernandes">
+<link rel="canonical" href="https://erppro.pages.dev/fechamento-de-caixa/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fechamento de caixa sem diferença: a rotina diária do PDV">
+<meta property="og:description" content="Abertura, sangria, suprimento, contagem às cegas e conferência por forma de pagamento para o caixa fechar certo todo dia.">
+<meta property="og:locale" content="pt_BR">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Fechamento de caixa sem diferença: a rotina diária do PDV passo a passo",
+      "inLanguage": "pt-BR",
+      "author": {"@type": "Person", "name": "Adriano Fernandes"},
+      "publisher": {"@type": "Organization", "name": "ERPPro", "url": "https://erppro.com.br/"},
+      "about": ["fechamento de caixa", "sangria de caixa", "suprimento de caixa", "PDV", "frente de caixa"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "O que é contagem às cegas no fechamento de caixa?",
+         "acceptedAnswer": {"@type": "Answer", "text": "É quando o operador conta o dinheiro da gaveta e informa o valor sem ver quanto o sistema espera. Assim a contagem é honesta e a diferença aparece como ela é."}},
+        {"@type": "Question", "name": "Qual a diferença entre sangria e suprimento?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Sangria é a retirada de dinheiro da gaveta durante o expediente, para guardar no cofre ou pagar algo. Suprimento é o reforço de dinheiro, normalmente para troco. As duas precisam ser lançadas no caixa na hora."}},
+        {"@type": "Question", "name": "O que fazer quando o caixa fecha com diferença?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Recontar a gaveta, conferir sangrias, suprimentos, cancelamentos e vendas por forma de pagamento do turno e registrar o motivo encontrado. Diferença sem explicação deve ser anotada no fechamento daquele turno e daquela pessoa."}}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root{--azul:#0b4fd6;--azul-escuro:#08307f;--fundo:#f5f8ff;--texto:#1b2333;--suave:#5a6478;--borda:#dde5f5}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--texto);background:#fff;line-height:1.65}
+  header{background:linear-gradient(135deg,var(--azul-escuro),var(--azul));color:#fff;padding:64px 20px 56px}
+  .wrap{max-width:820px;margin:0 auto}
+  .tag{display:inline-block;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:99px;font-size:.85rem;margin-bottom:16px}
+  h1{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;margin:0 0 16px}
+  header p{font-size:1.1rem;opacity:.92;margin:0}
+  .autor{margin-top:20px;font-size:.9rem;opacity:.85}
+  main{padding:40px 20px 24px}
+  h2{font-size:1.5rem;color:var(--azul-escuro);margin:44px 0 12px}
+  h3{font-size:1.1rem;margin:0 0 6px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:20px 0}
+  .card{background:var(--fundo);border:1px solid var(--borda);border-radius:14px;padding:18px}
+  .card p{margin:0;color:var(--suave);font-size:.95rem}
+  .passos{counter-reset:p;list-style:none;padding:0}
+  .passos li{counter-increment:p;position:relative;padding:14px 14px 14px 58px;border-bottom:1px solid var(--borda)}
+  .passos li::before{content:counter(p);position:absolute;left:10px;top:12px;width:34px;height:34px;border-radius:50%;background:var(--azul);color:#fff;display:grid;place-items:center;font-weight:700}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95rem}
+  th,td{border:1px solid var(--borda);padding:10px;text-align:left;vertical-align:top}
+  th{background:var(--fundo)}
+  .destaque{background:#fff8e6;border-left:4px solid #f5a623;padding:14px 18px;border-radius:8px;margin:20px 0}
+  details{border:1px solid var(--borda);border-radius:10px;padding:12px 16px;margin:10px 0}
+  summary{font-weight:600;cursor:pointer}
+  .cta{background:var(--fundo);border:1px solid var(--borda);border-radius:16px;padding:28px;text-align:center;margin:44px 0 12px}
+  .cta a{display:inline-block;margin-top:12px;background:var(--azul);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-weight:600}
+  footer{text-align:center;color:var(--suave);font-size:.85rem;padding:24px 20px 40px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a href="/" style="color:#fff;opacity:.85;text-decoration:none;font-size:.9rem;display:block;margin-bottom:14px">← Conheça o ERPPro</a>
+    <span class="tag">Guia prático · PDV e caixa</span>
+    <h1>Fechamento de caixa sem diferença: a rotina diária do PDV</h1>
+    <p>Diferença no caixa quase nunca é mistério: é sangria que não foi lançada, troco errado, venda no cartão registrada como dinheiro. Com uma rotina simples, do abrir ao fechar, o caixa passa a bater todo dia — e quando não bate, você sabe por quê.</p>
+    <p class="autor">Por Adriano Fernandes · ERPPro</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>Por que o caixa fecha com diferença</h2>
+  <p>Quem já ficou depois do expediente recontando nota de dez sabe: a diferença raramente vem de uma coisa só. Ela é a soma de pequenos descuidos ao longo do dia, que ninguém percebe na hora e ninguém consegue reconstituir depois. Os motivos mais comuns são sempre os mesmos:</p>
+  <div class="grid">
+    <div class="card"><h3>💸 Sangria sem registro</h3><p>Dinheiro tirado da gaveta para pagar o motoboy ou levar ao cofre, sem lançar no sistema.</p></div>
+    <div class="card"><h3>💳 Forma de pagamento trocada</h3><p>Venda paga no PIX ou no cartão registrada como dinheiro — a gaveta "falta" o que nunca entrou nela.</p></div>
+    <div class="card"><h3>🪙 Troco e fundo errados</h3><p>Caixa aberto sem contar o fundo de troco, ou troco dado a mais na correria.</p></div>
+    <div class="card"><h3>❌ Cancelamento sem motivo</h3><p>Venda cancelada depois de recebida, sem registro de quem autorizou nem por quê.</p></div>
+    <div class="card"><h3>👥 Login compartilhado</h3><p>Todo mundo vende no mesmo usuário, então a diferença não tem turno nem dono.</p></div>
+    <div class="card"><h3>📅 Conferência atrasada</h3><p>O caixa só é conferido no fim da semana, quando já ninguém lembra do que aconteceu.</p></div>
+  </div>
+  <p>Repare que nenhum desses motivos pede desconfiar da equipe. Todos pedem <strong>registro</strong>. O objetivo do fechamento não é caçar culpado, é transformar a diferença em informação: quanto, em qual turno, em qual forma de pagamento e com quem.</p>
+
+  <h2>Abertura do caixa: o fechamento começa de manhã</h2>
+  <p>Um fechamento certo depende de uma abertura certa. Se o valor inicial da gaveta está errado, todo o resto do dia já nasce torto.</p>
+  <ol class="passos">
+    <li><strong>Cada operador com o próprio login.</strong> Quem abre o caixa é quem responde por ele no turno. Nada de senha anotada no monitor.</li>
+    <li><strong>Conte o fundo de troco antes de vender.</strong> Defina um valor fixo de troco para a loja e confira em voz alta, de preferência com o gerente.</li>
+    <li><strong>Registre a abertura no sistema.</strong> Quem abriu, a que horas e com quanto na gaveta. É esse número que o fechamento vai usar como ponto de partida.</li>
+    <li><strong>Separe moedas e notas por valor.</strong> Gaveta organizada evita troco errado e acelera a contagem no fim do dia.</li>
+  </ol>
+
+  <h2>Durante o dia: sangria, suprimento e forma de pagamento certa</h2>
+  <p>É no meio do expediente que a diferença costuma nascer. Três hábitos resolvem a maior parte dos problemas.</p>
+  <p><strong>1. Toda sangria é lançada na hora.</strong> Retirou dinheiro da gaveta para o cofre, para pagar uma entrega ou para o banco? Lança a sangria no caixa, com o valor e o motivo, antes de fechar a gaveta. Sangria anotada num papel "para lançar depois" é a causa número um de falta no caixa.</p>
+  <p><strong>2. Todo reforço de troco é um suprimento.</strong> Se o gerente trouxe mais moedas no meio da tarde, isso entra como suprimento. Sem esse registro, o caixa vai mostrar sobra — que também é diferença.</p>
+  <p><strong>3. A forma de pagamento é escolhida certa no PDV.</strong> Dinheiro, PIX, cartão de débito, crédito e crediário precisam sair cada um no seu total. Quando o cliente paga parte em dinheiro e parte no cartão, registre o pagamento dividido em vez de lançar tudo numa forma só.</p>
+  <div class="destaque"><strong>Regra de ouro:</strong> o que sai ou entra na gaveta passa pelo sistema. Cancelamento, desconto fora do padrão e sangria devem pedir a autorização do gerente — assim a exceção não vira rotina.</div>
+
+  <h2>Fechamento passo a passo, com contagem às cegas</h2>
+  <p>Na hora de fechar, a regra é separar papéis: <strong>o sistema calcula, o operador conta</strong>. É isso que tira a discussão do fechamento.</p>
+  <ol class="passos">
+    <li><strong>Encerre as vendas do turno.</strong> Nenhuma venda nova enquanto a gaveta está sendo contada.</li>
+    <li><strong>Conte o dinheiro da gaveta sem ver o esperado.</strong> Na contagem às cegas o operador digita quanto contou sem saber quanto o sistema calculou. Assim ninguém "ajusta" a contagem para bater.</li>
+    <li><strong>Confira as outras formas de pagamento.</strong> Compare o total de cartão com o relatório da maquininha e o total de PIX com o extrato. O número de transações ajuda a achar uma venda lançada duas vezes.</li>
+    <li><strong>Veja a diferença.</strong> Esperado na gaveta (fundo de troco + vendas em dinheiro + suprimentos − sangrias) contra o contado. Fechou sem diferença, sobrou ou faltou — com valor exato.</li>
+    <li><strong>Se deu diferença, investigue no mesmo dia.</strong> Reconte, revise o log do turno (sangrias, suprimentos, cancelamentos, descontos) e registre o motivo encontrado.</li>
+    <li><strong>Imprima ou salve o resumo.</strong> O operador assina, o gerente confere e o documento fica arquivado.</li>
+    <li><strong>Guarde o dinheiro e deixe o fundo de troco do dia seguinte separado.</strong></li>
+  </ol>
+  <table>
+    <tr><th>Linha do fechamento</th><th>De onde vem</th><th>O que conferir</th></tr>
+    <tr><td>Fundo de troco</td><td>Abertura do caixa</td><td>Se bate com o valor fixo da loja</td></tr>
+    <tr><td>Vendas em dinheiro</td><td>PDV</td><td>Vendas lançadas na forma errada</td></tr>
+    <tr><td>Suprimentos</td><td>Lançamentos do turno</td><td>Reforço de troco que não foi lançado</td></tr>
+    <tr><td>Sangrias</td><td>Lançamentos do turno</td><td>Retiradas anotadas só no papel</td></tr>
+    <tr><td>PIX e cartão</td><td>PDV</td><td>Extrato e relatório da maquininha</td></tr>
+    <tr><td>Diferença</td><td>Esperado − contado</td><td>Turno, valor e operador</td></tr>
+  </table>
+
+  <h2>O que o dono deve olhar no dia seguinte</h2>
+  <p>Fechamento bom não termina na gaveta. No dia seguinte, o dono ou gerente precisa de poucos minutos para ver o resultado de cada caixa:</p>
+  <ul>
+    <li><strong>Caixas que fecharam com diferença</strong> e o valor de cada uma.</li>
+    <li><strong>Diferenças repetidas</strong> no mesmo turno ou com o mesmo operador — padrão pede conversa e treinamento, não bronca.</li>
+    <li><strong>Quantidade de cancelamentos e descontos autorizados</strong> no dia. Se cresce, algo no atendimento mudou.</li>
+    <li><strong>Sangrias fora do horário combinado</strong> ou com valores diferentes do habitual.</li>
+  </ul>
+  <p>Com esse acompanhamento diário, a diferença deixa de ser surpresa do fim do mês e vira um ajuste pequeno, resolvido no mesmo dia.</p>
+
+  <h2>Perguntas frequentes</h2>
+  <details><summary>O que é contagem às cegas no fechamento de caixa?</summary><p>É quando o operador conta o dinheiro e informa o valor sem ver quanto o sistema espera. A contagem fica honesta e a diferença aparece como ela é.</p></details>
+  <details><summary>Qual a diferença entre sangria e suprimento?</summary><p>Sangria é retirar dinheiro da gaveta durante o expediente; suprimento é colocar dinheiro, normalmente para troco. As duas precisam ser lançadas no caixa na hora em que acontecem.</p></details>
+  <details><summary>O que fazer quando o caixa fecha com diferença?</summary><p>Recontar a gaveta, revisar sangrias, suprimentos, cancelamentos e as vendas por forma de pagamento do turno e registrar o motivo. Diferença sem explicação fica anotada no fechamento daquele turno e daquela pessoa.</p></details>
+
+  <div class="cta">
+    <h2 style="margin-top:0">Caixa que fecha sem discussão</h2>
+    <p>No ERPPro, a abertura registra o fundo de troco, sangria e cancelamento pedem senha do gerente, a operadora conta a gaveta sem ver o esperado e a diferença aparece no fechamento do turno, com valor e responsável. O resultado de cada caixa ainda aparece no painel do dono no dia seguinte.</p>
+    <a href="https://erppro.com.br/controle-de-acesso-e-caixa/">Ver o fechamento de caixa com controle de acesso</a>
+  </div>
+</main>
+
+<footer>© ERPPro · Guia de fechamento de caixa para lojas</footer>
+</body>
+</html>
