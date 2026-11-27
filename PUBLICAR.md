@@ -37,7 +37,8 @@ Dono: Adriano Fernandes (ERPPro). Responda a ele em português, direto, tom leve
 2. Se pedir login: **pare**, não digite senha, e avise o Adriano que precisa entrar na Cloudflare. Publique na próxima rodada.
 3. Deixe marcado **Produção**.
 4. Envie o zip pela ferramenta de JavaScript da página: decodifique o conteúdo de `dist/site.zip.b64` em bytes, crie `new File([bytes], 'erppro-site.zip', {type: 'application/zip'})`, coloque no `input[type=file][accept=".zip"]` com `DataTransfer` e dispare os eventos `input` e `change`.
-5. Confira na tela que todos os arquivos foram carregados e clique em **Salvar e implantar**.
+5. Confira na tela que **todos** os arquivos foram carregados, inclusive as subpastas de cada guia com o tamanho certo (pasta com 0 B = erro: clique em "Remover tudo", confirme, refaça o build e envie de novo). Só então clique em **Salvar e implantar**.
+6. Feche a aba da Cloudflare ao terminar.
 
 ## Fila de temas
 
