@@ -1,0 +1,22 @@
+{
+  "site": "https://erppro.pages.dev",
+  "guias": [
+    {
+      "slug": "crediario-proprio",
+      "titulo": "Crediário próprio na loja: como vender a prazo sem cair na inadimplência",
+      "resumo": "Limite por cliente, carnê, cobrança pelo WhatsApp e indicadores para vender a prazo com segurança.",
+      "icone": "💳",
+      "palavra_chave": "crediário próprio para loja",
+      "link_site": "https://erppro.com.br/",
+      "publicado_em": "2026-11-27"
+    }
+  ],
+  "fora_do_pages_dev": [
+    {
+      "onde": "https://erppro.d13yf7g99o1duo.amplifyapp.com/",
+      "tema": "Estoque por grade em loja de roupas e calçados",
+      "arquivo": "outros/aws-amplify-estoque-por-grade.html",
+      "observacao": "AWS Amplify, conta Free de 6 meses (até ~maio/2027). Não repetir este tema no pages.dev enquanto estiver no ar."
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estoque por grade em loja de roupas e calçados: tamanho e cor sem furo | ERPPro</title>
+<meta name="description" content="Guia prático de estoque por grade para loja de roupas e calçados: como cadastrar tamanho e cor, evitar furo de estoque, fazer inventário e saber o que repor. Por Adriano Fernandes, ERPPro.">
+<meta name="author" content="Adriano Fernandes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Estoque por grade em loja de roupas e calçados: tamanho e cor sem furo">
+<meta property="og:description" content="Cadastro de grade, inventário, curva de tamanhos e reposição para lojas de moda.">
+<meta property="og:locale" content="pt_BR">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Estoque por grade em loja de roupas e calçados: tamanho e cor sem furo",
+      "inLanguage": "pt-BR",
+      "author": {"@type": "Person", "name": "Adriano Fernandes"},
+      "publisher": {"@type": "Organization", "name": "ERPPro", "url": "https://erppro.com.br/"},
+      "about": ["grade de produtos", "estoque de loja de roupas", "estoque de calçados", "sistema para loja de roupas"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "O que é grade de produto?",
+         "acceptedAnswer": {"@type": "Answer", "text": "É a combinação de variações de um mesmo modelo, como tamanho e cor. Uma camiseta em 3 cores e 4 tamanhos tem 12 itens na grade, cada um com seu próprio estoque."}},
+        {"@type": "Question", "name": "Por que o estoque de loja de roupas sempre dá diferença?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Porque a venda é registrada no modelo e não no tamanho e cor vendidos, ou porque trocas e devoluções não voltam para a grade certa."}},
+        {"@type": "Question", "name": "Como saber qual tamanho repor?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Olhando a curva de vendas por tamanho de cada modelo: quais tamanhos esgotam primeiro e quais sobram. A reposição segue essa curva, não a grade cheia."}}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root{--verde:#0f766e;--verde-escuro:#134e4a;--fundo:#f0fdfa;--texto:#1b2333;--suave:#5a6478;--borda:#cdeee8}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--texto);line-height:1.65}
+  header{background:linear-gradient(135deg,var(--verde-escuro),var(--verde));color:#fff;padding:64px 20px 56px}
+  .wrap{max-width:820px;margin:0 auto}
+  .tag{display:inline-block;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:99px;font-size:.85rem;margin-bottom:16px}
+  h1{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;margin:0 0 16px}
+  header p{font-size:1.1rem;opacity:.92;margin:0}
+  .autor{margin-top:20px;font-size:.9rem;opacity:.85}
+  main{padding:40px 20px 24px}
+  h2{font-size:1.5rem;color:var(--verde-escuro);margin:44px 0 12px}
+  h3{font-size:1.05rem;margin:0 0 6px}
+  .grade{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95rem}
+  th,td{border:1px solid var(--borda);padding:10px;text-align:center}
+  th{background:var(--fundo)}
+  td.esq,th.esq{text-align:left}
+  .zero{background:#fee2e2;font-weight:700}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:20px 0}
+  .card{background:var(--fundo);border:1px solid var(--borda);border-radius:14px;padding:18px}
+  .card p{margin:0;color:var(--suave);font-size:.95rem}
+  ul.check{list-style:none;padding:0}
+  ul.check li{padding:8px 0 8px 32px;position:relative;border-bottom:1px solid var(--borda)}
+  ul.check li::before{content:"✔";position:absolute;left:6px;color:var(--verde);font-weight:700}
+  .destaque{background:#fff8e6;border-left:4px solid #f5a623;padding:14px 18px;border-radius:8px;margin:20px 0}
+  details{border:1px solid var(--borda);border-radius:10px;padding:12px 16px;margin:10px 0}
+  summary{font-weight:600;cursor:pointer}
+  .cta{background:var(--fundo);border:1px solid var(--borda);border-radius:16px;padding:28px;text-align:center;margin:44px 0 12px}
+  .cta a{display:inline-block;margin-top:12px;background:var(--verde);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-weight:600}
+  footer{text-align:center;color:var(--suave);font-size:.85rem;padding:24px 20px 40px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="tag">Guia prático · Moda e calçados</span>
+    <h1>Estoque por grade em loja de roupas e calçados: tamanho e cor sem furo</h1>
+    <p>Na moda, o estoque não é "tem a camiseta". É "tem a camiseta preta no M". Este guia mostra como controlar a grade para parar de perder venda por tamanho que acabou e de encalhar o que ninguém compra.</p>
+    <p class="autor">Por Adriano Fernandes · ERPPro</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>O que é grade e por que ela muda tudo</h2>
+  <p>Grade é a combinação das variações de um mesmo modelo. Uma camiseta em <strong>3 cores</strong> e <strong>4 tamanhos</strong> vira <strong>12 itens diferentes</strong>, cada um com seu próprio estoque. Para o cliente, só existe o item que serve nele: se o M preto acabou, para ele a loja não tem a camiseta.</p>
+
+  <div class="grade">
+    <table>
+      <tr><th class="esq">Camiseta básica</th><th>P</th><th>M</th><th>G</th><th>GG</th></tr>
+      <tr><td class="esq">Preta</td><td>4</td><td class="zero">0</td><td>3</td><td>2</td></tr>
+      <tr><td class="esq">Branca</td><td>5</td><td>2</td><td class="zero">0</td><td>1</td></tr>
+      <tr><td class="esq">Azul</td><td>6</td><td>5</td><td>4</td><td>3</td></tr>
+    </table>
+  </div>
+  <p>No total são 35 peças, e parece estoque de sobra. Mas o M preto e o G branco, que costumam ser os que mais vendem, estão zerados. Sem grade, a loja só descobre isso quando o cliente vai embora sem comprar.</p>
+
+  <h2>Os 4 furos de estoque mais comuns na moda</h2>
+  <div class="grid">
+    <div class="card"><h3>🏷️ Venda no modelo, não na grade</h3><p>O caixa baixa "camiseta" sem tamanho e cor. O estoque total bate, mas a grade fica errada.</p></div>
+    <div class="card"><h3>🔄 Troca que não volta certo</h3><p>O cliente troca o M pelo G e só uma das pontas é registrada.</p></div>
+    <div class="card"><h3>📦 Entrada sem conferência</h3><p>O fornecedor manda a grade diferente do pedido e ninguém confere peça por peça.</p></div>
+    <div class="card"><h3>🧺 Peça em malinha ou condicional</h3><p>A peça saiu para o cliente provar em casa e continua aparecendo como disponível.</p></div>
+  </div>
+
+  <h2>Passo a passo para organizar a grade da loja</h2>
+  <ul class="check">
+    <li><strong>Padronize tamanhos e cores.</strong> Use sempre a mesma lista (P, M, G, GG; 34 a 44; 33 a 44 em calçados) e nomes de cor iguais em todos os produtos.</li>
+    <li><strong>Um código de barras por item da grade.</strong> Cada combinação de tamanho e cor precisa de etiqueta própria para o caixa baixar o item certo.</li>
+    <li><strong>Venda sempre pelo código.</strong> Nada de digitar o modelo na mão no caixa.</li>
+    <li><strong>Troca registrada nas duas pontas.</strong> Entra a peça devolvida, sai a nova, cada uma na sua grade.</li>
+    <li><strong>Conferência na entrada.</strong> Bipe a nota do fornecedor contra o pedido antes de colocar na arara.</li>
+    <li><strong>Condicional controlado.</strong> Peça em malinha sai do disponível até voltar ou virar venda.</li>
+    <li><strong>Inventário rotativo.</strong> Conte um setor por semana em vez de fechar a loja para contar tudo de uma vez.</li>
+  </ul>
+
+  <h2>Curva de tamanhos: como saber o que repor</h2>
+  <p>Repor a grade cheia é o caminho mais rápido para encalhar. O certo é olhar a <strong>curva de vendas por tamanho</strong> de cada modelo: quais tamanhos esgotam primeiro e quais sobram no fim da coleção. Se o P de um modelo sempre sobra, compre menos P na próxima. Se o M esgota em duas semanas, compre mais M.</p>
+  <div class="destaque"><strong>Dica:</strong> anote a curva por <strong>modelo</strong>, não pela loja toda. Uma calça de alfaiataria e um short jeans têm curvas de tamanho bem diferentes.</div>
+
+  <h2>Perguntas frequentes</h2>
+  <details><summary>Calçado precisa de grade diferente da roupa?</summary><p>Sim. Calçado trabalha com numeração e, muitas vezes, com cor e material. A lógica é a mesma: cada número de cada cor tem estoque próprio.</p></details>
+  <details><summary>Com que frequência devo fazer inventário?</summary><p>O inventário rotativo semanal, por setor, funciona melhor que um inventário geral por ano. As diferenças aparecem cedo, quando ainda dá para descobrir a causa.</p></details>
+  <details><summary>Planilha resolve o controle de grade?</summary><p>Com poucos modelos, até resolve. Com coleções inteiras, trocas e condicional, a planilha não acompanha o caixa em tempo real, e é aí que a grade se perde.</p></details>
+
+  <div class="cta">
+    <h2 style="margin-top:0">Grade de tamanho e cor no caixa, em tempo real</h2>
+    <p>O ERPPro é um sistema para loja de roupas e calçados com grade nativa, etiqueta por item, troca, venda condicional e inventário integrados ao PDV.</p>
+    <a href="https://erppro.com.br/sistema-para-lojas-de-roupas/">Conhecer o ERPPro para loja de roupas</a>
+  </div>
+</main>
+
+<footer>© ERPPro · Guia de estoque por grade para lojas de moda</footer>
+</body>
+</html>
