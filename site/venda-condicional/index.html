@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venda condicional (malinha): como controlar sem perder peça | ERPPro</title>
+<meta name="description" content="Guia prático de venda condicional para loja de roupas: regras da malinha, prazo de devolução, termo de responsabilidade, baixa no estoque e conversão em venda. Por Adriano Fernandes, ERPPro.">
+<meta name="author" content="Adriano Fernandes">
+<link rel="canonical" href="https://erppro.pages.dev/venda-condicional/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Venda condicional (malinha): como controlar sem perder peça">
+<meta property="og:description" content="Regras da malinha, prazo de devolução, estoque reservado e conversão em venda para a loja não perder peça nem dinheiro.">
+<meta property="og:locale" content="pt_BR">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Venda condicional (malinha): como controlar sem perder peça",
+      "inLanguage": "pt-BR",
+      "author": {"@type": "Person", "name": "Adriano Fernandes"},
+      "publisher": {"@type": "Organization", "name": "ERPPro", "url": "https://erppro.com.br/"},
+      "about": ["venda condicional", "malinha", "loja de roupas", "controle de estoque"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "O que é venda condicional?",
+         "acceptedAnswer": {"@type": "Answer", "text": "É quando a loja deixa o cliente levar peças para provar em casa, com prazo para devolver. O que ele ficar vira venda; o que voltar retorna ao estoque."}},
+        {"@type": "Question", "name": "Qual o prazo ideal para a malinha?",
+         "acceptedAnswer": {"@type": "Answer", "text": "De 24 a 72 horas funciona bem para a maioria das lojas. Prazo longo deixa a peça parada fora da vitrine e aumenta o risco de uso e desgaste."}},
+        {"@type": "Question", "name": "A peça da condicional sai do estoque?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Ela deve ficar reservada: não está disponível para venda na loja, mas ainda não foi vendida. Só sai de vez quando o cliente decide ficar com ela."}}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root{--azul:#0b4fd6;--azul-escuro:#08307f;--fundo:#f5f8ff;--texto:#1b2333;--suave:#5a6478;--borda:#dde5f5}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--texto);background:#fff;line-height:1.65}
+  header{background:linear-gradient(135deg,var(--azul-escuro),var(--azul));color:#fff;padding:64px 20px 56px}
+  .wrap{max-width:820px;margin:0 auto}
+  .tag{display:inline-block;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:99px;font-size:.85rem;margin-bottom:16px}
+  h1{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;margin:0 0 16px}
+  header p{font-size:1.1rem;opacity:.92;margin:0}
+  .autor{margin-top:20px;font-size:.9rem;opacity:.85}
+  main{padding:40px 20px 24px}
+  h2{font-size:1.5rem;color:var(--azul-escuro);margin:44px 0 12px}
+  h3{font-size:1.1rem;margin:0 0 6px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:20px 0}
+  .card{background:var(--fundo);border:1px solid var(--borda);border-radius:14px;padding:18px}
+  .card p{margin:0;color:var(--suave);font-size:.95rem}
+  .passos{counter-reset:p;list-style:none;padding:0}
+  .passos li{counter-increment:p;position:relative;padding:14px 14px 14px 58px;border-bottom:1px solid var(--borda)}
+  .passos li::before{content:counter(p);position:absolute;left:10px;top:12px;width:34px;height:34px;border-radius:50%;background:var(--azul);color:#fff;display:grid;place-items:center;font-weight:700}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95rem}
+  th,td{border:1px solid var(--borda);padding:10px;text-align:left;vertical-align:top}
+  th{background:var(--fundo)}
+  .destaque{background:#fff8e6;border-left:4px solid #f5a623;padding:14px 18px;border-radius:8px;margin:20px 0}
+  details{border:1px solid var(--borda);border-radius:10px;padding:12px 16px;margin:10px 0}
+  summary{font-weight:600;cursor:pointer}
+  .cta{background:var(--fundo);border:1px solid var(--borda);border-radius:16px;padding:28px;text-align:center;margin:44px 0 12px}
+  .cta a{display:inline-block;margin-top:12px;background:var(--azul);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-weight:600}
+  footer{text-align:center;color:var(--suave);font-size:.85rem;padding:24px 20px 40px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a href="/" style="color:#fff;opacity:.85;text-decoration:none;font-size:.9rem;display:block;margin-bottom:14px">← Conheça o ERPPro</a>
+    <span class="tag">Guia prático · Moda e varejo</span>
+    <h1>Venda condicional (malinha): como controlar sem perder peça</h1>
+    <p>A malinha é uma das armas mais fortes da loja de roupas: a cliente prova em casa, com calma, e quase sempre fica com alguma coisa. Mas sem controle ela vira peça sumida, estoque errado e dinheiro parado. Veja como organizar.</p>
+    <p class="autor">Por Adriano Fernandes · ERPPro</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>O que é venda condicional e por que ela vende tanto</h2>
+  <p>Na venda condicional, a loja separa um conjunto de peças e deixa a cliente levar para casa por um prazo combinado. Ela prova com as roupas que já tem, mostra para a família, combina com o sapato certo. No retorno, o que ela ficou vira venda e o resto volta para a arara.</p>
+  <p>Funciona porque tira a pressão do provador. A cliente decide no próprio ritmo e, como já está com a peça no corpo, a chance de compra sobe. Para clientes fiéis, a malinha também é um mimo: a vendedora conhece o estilo, monta a seleção e a cliente se sente atendida de forma especial.</p>
+
+  <div class="grid">
+    <div class="card"><h3>👗 Prova sem pressa</h3><p>Em casa a cliente combina com o que já tem e decide com segurança.</p></div>
+    <div class="card"><h3>🛍️ Ticket maior</h3><p>Quem leva cinco peças para provar costuma ficar com mais de uma.</p></div>
+    <div class="card"><h3>💬 Relacionamento</h3><p>A seleção feita pela vendedora vira motivo de conversa e de volta à loja.</p></div>
+  </div>
+
+  <h2>Onde a loja perde dinheiro na malinha</h2>
+  <p>O problema não é a condicional em si, e sim o controle feito de memória ou num caderno no balcão. Os furos mais comuns são sempre os mesmos:</p>
+  <ul>
+    <li><strong>Peça que ninguém sabe com quem está.</strong> A malinha saiu, a anotação se perdeu e a peça só aparece no inventário como falta.</li>
+    <li><strong>Estoque mostrando o que não está na loja.</strong> Outra cliente pede o tamanho M, o sistema diz que tem, mas ele está na casa de alguém.</li>
+    <li><strong>Prazo que vira semana.</strong> Sem data de devolução clara, a peça fica fora da vitrine justo na época de maior procura.</li>
+    <li><strong>Peça devolvida com uso.</strong> Sem regra combinada, fica difícil recusar uma roupa lavada, com cheiro ou etiqueta cortada.</li>
+    <li><strong>Venda que não entra no caixa.</strong> A cliente fica com duas peças, paga depois e o valor some no meio do caminho.</li>
+  </ul>
+  <div class="destaque"><strong>Regra de ouro:</strong> peça na malinha não está vendida, mas também não está disponível. Ela precisa ficar <strong>reservada</strong>, com nome da cliente, data de saída e prazo de volta.</div>
+
+  <h2>Passo a passo para organizar a venda condicional</h2>
+  <ol class="passos">
+    <li><strong>Defina quem pode levar.</strong> Comece pelas clientes com cadastro completo e histórico de compra. Cliente nova pode levar menos peças ou deixar um sinal.</li>
+    <li><strong>Limite de peças e de valor.</strong> Estabeleça um máximo por malinha, por exemplo de cinco a oito peças, ou um teto em reais. Cliente pontual ganha mais espaço.</li>
+    <li><strong>Registre cada peça na saída.</strong> Produto, tamanho, cor e preço, ligados ao nome da cliente. Nada de anotar "duas blusas e uma calça".</li>
+    <li><strong>Reserve no estoque.</strong> A peça deixa de aparecer como disponível para venda até voltar ou ser vendida.</li>
+    <li><strong>Combine o prazo por escrito.</strong> Data e hora de devolução no comprovante que vai junto com a sacola.</li>
+    <li><strong>Lembrete antes de vencer.</strong> Uma mensagem no WhatsApp no dia anterior ao prazo evita a maior parte dos atrasos.</li>
+    <li><strong>Confira peça por peça no retorno.</strong> Etiqueta, estado e quantidade. O que voltou entra de novo no estoque; o que ficou vira venda no caixa, na hora.</li>
+  </ol>
+
+  <h3 style="margin-top:28px">O termo da malinha: regras claras evitam conflito</h3>
+  <p>Um comprovante simples, assinado na saída, protege a loja e deixa a cliente tranquila. Ele não precisa de linguagem complicada, só de informação clara:</p>
+  <table>
+    <tr><th>Item do termo</th><th>Para que serve</th></tr>
+    <tr><td>Lista das peças com preço</td><td>Cliente e loja sabem exatamente o que saiu e quanto vale</td></tr>
+    <tr><td>Data e hora de devolução</td><td>Acaba com a dúvida sobre "até quando posso ficar"</td></tr>
+    <tr><td>Condição das peças</td><td>Devolver com etiqueta, sem uso, sem lavagem e sem perfume</td></tr>
+    <tr><td>O que acontece no atraso</td><td>Por exemplo, a peça passa a ser considerada vendida após o prazo</td></tr>
+    <tr><td>Forma de pagamento do que ficar</td><td>Pagamento no retorno, no caixa, nas formas que a loja aceita</td></tr>
+  </table>
+  <p>Mostre o termo com simpatia, como algo que organiza a experiência, e não como desconfiança. A cliente boa entende e até gosta de ver a loja organizada.</p>
+
+  <h2>Indicadores para acompanhar toda semana</h2>
+  <table>
+    <tr><th>Indicador</th><th>O que mostra</th><th>Sinal de alerta</th></tr>
+    <tr><td>Malinhas em aberto</td><td>Quantas condicionais ainda não voltaram</td><td>Número crescendo sem aumento de vendas</td></tr>
+    <tr><td>Malinhas em atraso</td><td>Quem passou do prazo combinado</td><td>Os mesmos nomes toda semana</td></tr>
+    <tr><td>Taxa de conversão</td><td>Quanto do valor que saiu virou venda</td><td>Cliente que leva muito e nunca fica com nada</td></tr>
+    <tr><td>Valor parado fora da loja</td><td>Estoque reservado na casa das clientes</td><td>Peças de lançamento presas em malinha</td></tr>
+  </table>
+  <p>A taxa de conversão é a mais reveladora. Se uma cliente leva dez malinhas no ano e não compra nada, vale reduzir o limite dela ou trocar a malinha por um convite para provar na loja.</p>
+
+  <h3 style="margin-top:28px">Caderno ou sistema: quando o controle manual não dá mais conta</h3>
+  <p>Com duas ou três malinhas por semana, um caderno bem feito resolve. Quando a condicional vira rotina, com várias vendedoras montando seleções e dezenas de peças fora ao mesmo tempo, o caderno começa a falhar: o estoque não sabe da reserva, o caixa não sabe do retorno e ninguém sabe quem está atrasada.</p>
+  <p>No sistema, a condicional nasce ligada ao cadastro da cliente e ao estoque por tamanho e cor. A peça fica reservada, o retorno volta para o estoque com um clique e o que a cliente ficou vira venda no caixa, sem digitar tudo de novo. E o relatório de condicionais em aberto mostra, a qualquer momento, o que está fora da loja.</p>
+
+  <h2>Perguntas frequentes</h2>
+  <details><summary>Posso pedir um sinal para a cliente nova levar a malinha?</summary><p>Pode. Muitas lojas pedem um valor de garantia ou deixam a cliente nova levar menos peças nas primeiras vezes. Depois que ela cria histórico, a regra fica mais flexível.</p></details>
+  <details><summary>A malinha pode ser entregue em casa?</summary><p>Pode, e funciona muito bem com cliente fiel. Só vale manter o mesmo registro de peças, o mesmo termo e um prazo de recolhimento combinado.</p></details>
+  <details><summary>E se a cliente devolver a peça com uso?</summary><p>Por isso a condição das peças precisa estar escrita no termo. Com a regra combinada antes, fica mais fácil conversar e, se for o caso, considerar a peça vendida.</p></details>
+
+  <div class="cta">
+    <h2 style="margin-top:0">Malinha controlada, estoque certo</h2>
+    <p>O ERPPro é um sistema para loja de roupas com grade de tamanho e cor, venda condicional e troca integradas ao PDV.</p>
+    <a href="https://erppro.com.br/sistema-para-lojas-de-roupas/">Conhecer o sistema para loja de roupas</a>
+  </div>
+</main>
+
+<footer>© ERPPro · Guia de venda condicional para lojas</footer>
+</body>
+</html>
